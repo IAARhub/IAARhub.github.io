@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IAAR Capacitación</title><link>http://iaarhub.github.io/</link><description>Sitio de Capacitaciones de IAAR</description><lastBuildDate>Thu, 16 Mar 2017 00:00:00 -0300</lastBuildDate><item><title>Currícula Data Science - Inteligencia Artificial</title><link>http://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</link><description>&lt;h1&gt;Currícula Data Science - Inteligencia Artificial&lt;/h1&gt;
+<rss version="2.0"><channel><title>IAAR Capacitación</title><link>https://iaarhub.github.io/</link><description>Sitio de Capacitaciones de IAAR</description><lastBuildDate>Thu, 16 Mar 2017 00:00:00 -0300</lastBuildDate><item><title>Currícula Data Science - Inteligencia Artificial</title><link>https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</link><description>&lt;h1&gt;Currícula Data Science - Inteligencia Artificial&lt;/h1&gt;
 &lt;h2&gt;Fundamentos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Algebra Lineal y Matrices&lt;/li&gt;
@@ -234,7 +234,7 @@
 &lt;li&gt;Flume/Scibe/Chukwa&lt;/li&gt;
 &lt;li&gt;Shiny/ggplot2/D3.js&lt;/li&gt;
 &lt;li&gt;Nutch/Talend/Scraperwiki&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Raul E. Lopez Briega</dc:creator><pubDate>Thu, 16 Mar 2017 00:00:00 -0300</pubDate><guid isPermaLink="false">tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</guid><category>python</category><category>programacion</category><category>analisis de datos</category><category>Inteligencia Artificial</category><category>R</category></item><item><title>Redes neuronales convolucionales con TensorFlow</title><link>http://iaarhub.github.io/capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/</link><description>&lt;p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Raul E. Lopez Briega</dc:creator><pubDate>Thu, 16 Mar 2017 00:00:00 -0300</pubDate><guid isPermaLink="false">tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</guid><category>python</category><category>programacion</category><category>analisis de datos</category><category>Inteligencia Artificial</category><category>R</category></item><item><title>Redes neuronales convolucionales con TensorFlow</title><link>https://iaarhub.github.io/capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/</link><description>&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
