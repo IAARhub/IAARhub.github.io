@@ -324,7 +324,7 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># &lt;!-- collapse=True --&gt;</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># &lt;!-- collapse=True --&gt;</span>
 <span class="c1"># importamos la libreria</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.python</span> <span class="kn">import</span> <span class="n">control_flow_ops</span>
@@ -364,7 +364,7 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># cargar los datos</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># cargar los datos</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">unpickle</span><span class="p">(</span><span class="s1">&#39;cifar-10-batches-py/test_batch&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -378,7 +378,7 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># forma del dataset</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># forma del dataset</span>
 <span class="k">print</span> <span class="s1">&#39;forma dataset prueba: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 
@@ -390,7 +390,9 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>forma dataset prueba: (10000, 32, 32, 3)
 </pre>
@@ -406,7 +408,7 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># dibujar imagenes</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># dibujar imagenes</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
@@ -423,7 +425,9 @@ La operación realizada por esta capa también se llama <em>reducción de muestr
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -4076,7 +4080,7 @@ lIbPtgAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># dibujar 200 imagenes</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># dibujar 200 imagenes</span>
 <span class="n">conj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">320</span><span class="p">,</span><span class="mi">640</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -4095,7 +4099,9 @@ lIbPtgAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -10708,7 +10714,7 @@ lixZsmTJkvfB/wWXeK9LByYuvwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># armado de la red</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># armado de la red</span>
 
 <span class="c1"># Parametros</span>
 <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
@@ -10887,7 +10893,7 @@ Por último, la función <code>inference</code> es la que va a tener la estructu
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c1"># Lanzando el modelo</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Lanzando el modelo</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s2">&quot;cifar_Conv_model&quot;</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -10984,7 +10990,9 @@ Por último, la función <code>inference</code> es la que va a tener la estructu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Filling queue with 20000 CIFAR images before starting to train. This will take a few minutes.
 Epoch: 0001 cost = 1.528662126
@@ -11011,7 +11019,10 @@ Test Accuracy: 0.820312
 
 </div>
 </div>
-</div></p></div>
+</div>
+ 
+
+</p></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
@@ -11041,6 +11052,9 @@ Test Accuracy: 0.820312
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/">Mini tutorial de NumPy</a>
+      </li>
       <li class="post">
           <a href="https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/">Currícula Data Science - Inteligencia Artificial</a>
       </li>
@@ -11083,7 +11097,7 @@ Test Accuracy: 0.820312
 
   <section>
   <h1>Tags</h1>
-    <a href="https://iaarhub.github.io/tag/machine-learning.html">Machine Learning</a>,    <a href="https://iaarhub.github.io/tag/python.html">python</a>,    <a href="https://iaarhub.github.io/tag/r.html">R</a>,    <a href="https://iaarhub.github.io/tag/inteligencia-artificial.html">Inteligencia Artificial</a>,    <a href="https://iaarhub.github.io/tag/redes-neuronales.html">Redes Neuronales</a>,    <a href="https://iaarhub.github.io/tag/tensorflow.html">TensorFlow</a>,    <a href="https://iaarhub.github.io/tag/programacion.html">programacion</a>,    <a href="https://iaarhub.github.io/tag/analisis-de-datos.html">analisis de datos</a>  </section>
+    <a href="https://iaarhub.github.io/tag/programacion.html">programacion</a>,    <a href="https://iaarhub.github.io/tag/python.html">Python</a>,    <a href="https://iaarhub.github.io/tag/r.html">R</a>,    <a href="https://iaarhub.github.io/tag/arrays.html">Arrays</a>,    <a href="https://iaarhub.github.io/tag/analisis-de-datos.html">analisis de datos</a>,    <a href="https://iaarhub.github.io/tag/redes-neuronales.html">Redes Neuronales</a>,    <a href="https://iaarhub.github.io/tag/tensorflow.html">TensorFlow</a>,    <a href="https://iaarhub.github.io/tag/numpy.html">NumPy</a>,    <a href="https://iaarhub.github.io/tag/inteligencia-artificial.html">Inteligencia Artificial</a>,    <a href="https://iaarhub.github.io/tag/machine-learning.html">Machine Learning</a>  </section>
 
 
     <section>

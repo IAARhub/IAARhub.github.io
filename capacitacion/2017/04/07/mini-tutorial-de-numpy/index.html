@@ -4,9 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Comunidad IAAR | IAAR Capacitación </title>
+  <title>Mini tutorial de NumPy</title>
   <meta name="author" content="IAAR">
-  <meta name="description" content="">
+  <meta name="description" content="Introducción a NumPy para la ciencia de datos. Creación de Arrays, propiedades, manipulación, operaciones básicas, trucos con Arrays
+">
 
   <link href="/atom.xml" type="application/atom+xml" rel="alternate"
         title="IAAR Capacitación Atom Feed" />
@@ -255,29 +256,1014 @@ jQuery(document).ready(function($) {
   <div id="main">
     <div id="content">
 <div>
-  <article role="article">
-    <header>
-      <h1 class="entry-title">Comunidad IAAR</h1>
-    </header>
-    <h2><strong>IAAR</strong> es la comunidad argentina de inteligencia artificial</h2>
-<p>Agrupa a ingenieros, desarrolladores, emprendedores, investigadores, entidades gubernamentales y empresas en pos del desarrollo ético y humanitario de las tecnologías cognitivas.</p>
-<h2>Objetivos</h2>
-<ul>
-<li>Impulsar el desarrollo y apoyar emprendimientos escalables, contribuyendo a la industria argentina en general, y a la Industria del Conocimiento argentina en particular.</li>
-<li>Entrenar y formar profesionales en Inteligencia Artificial y Ciencia de Datos que el país necesita y necesitará en un mundo cada vez más competitivo.</li>
-<li>Crear e incubar nuevos grupos interdisciplinarios de investigación que exporten producción científica hacia el mundo.</li>
-<li>Divulgar el concepto, la importancia y los impactos tecnológicos, sociales y económicos de la Inteligencia Artificial al público argentino en general, ayudando a periodistas y difusores a lograr éste cometido sin sensacionalismos.</li>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Mini tutorial de NumPy</h1>
+      <p class="meta"><time datetime="2017-04-07T00:00:00-03:00" pubdate>Fri 07 April 2017</time></p>
+</header>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="relopezbriega" data-size="large" data-hashtags="python">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><script src="https://platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" data-counter="right"></script>
+<div class="fb-like" data-href="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+  <div class="entry-content"><p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://bids.berkeley.edu/sites/default/files/styles/400x225/public/projects/numpy_project_page.jpg?itok=flrdydei" title="numpy" alt="numpy"></p>
+<p><a href="http://www.numpy.org">NumPy</a> es el principal paquete para la computación científica con <a href="https://www.python.org/">Python</a></p>
+<p>Este mini tutorial esta orientado a una introducción de Python para la Ciencia de Datos. <strong><em>Pueden contactarme <a href="http://relopezbriega.github.io/">aquí</a> para cualquier tipo de sugerencias!</em></strong>. Basado en la cheat sheet de <a href="https://github.com/juliangaal/python-cheat-sheet/blob/master/NumPy/NumPy.md">JulianGaal</a></p>
+<h2 id="&#205;ndice">&#205;ndice<a class="anchor-link" href="#&#205;ndice">&#182;</a></h2><ol>
+<li><a href="#basics">Numpy básico</a><ul>
+<li><a href="#place">Placeholders</a></li>
+<li><a href="#ex">Ejemplos</a></li>
 </ul>
-<h2>Valores</h2>
-<ul>
-<li><strong>Inclusión:</strong> Tecnología al servicio de la comunidad en su conjunto.</li>
-<li><strong>Desarrollo:</strong> Industria argentina para el mundo.</li>
-<li><strong>Empatía:</strong> La vision de todos los afectados es tenida en cuenta.</li>
-<li><strong>Comunicación:</strong> Abierta, honesta, directa y efectiva.</li>
-<li><strong>Transparencia:</strong> Todas las operaciones estan abiertas a la comunidad.</li>
+</li>
+<li><a href="#arrays">Arrays</a><ul>
+<li><a href="#props">Propiedades</a></li>
+<li><a href="#gops">Copiando/Ordenando</a><ul>
+<li><a href="#array-Ejemplo">Ejemplos</a></li>
 </ul>
-<p><img alt="IAAR" src="https://iaarhub.github.io/theme/images/IAAR-foto.jpeg" /></p>
+</li>
+<li><a href="#man">Manipulación de Arrays</a><ul>
+<li><a href="#addrem">Agregando/Quitando Elementos</a></li>
+<li><a href="#comb">Combinando Arrays</a></li>
+<li><a href="#split">Dividiendo Arrays</a></li>
+<li><a href="#more">Mas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#maths">Matemáticas</a><ul>
+<li><a href="#ops">Operaciones aritméticas</a><ul>
+<li><a href="#operations-Ejemplos">Ejemplos</a></li>
+</ul>
+</li>
+<li><a href="#comparison">Comparaciones</a><ul>
+<li><a href="#comparison-Ejemplo">Ejemplos</a></li>
+</ul>
+</li>
+<li><a href="#stats">Estadística básica</a></li>
+<li><a href="#more_func">Mas funciones</a></li>
+</ul>
+</li>
+<li><a href="#ss">Slicing y Subsetting</a><ul>
+<li><a href="#exp">Ejemplos</a></li>
+</ul>
+</li>
+<li><a href="#Trucos">Trucos</a></li>
+<li><a href="#creds">Créditos</a></li>
+</ol>
+<h2 id="Numpy-b&#225;sico-">Numpy b&#225;sico <a name="basics" /><a class="anchor-link" href="#Numpy-b&#225;sico-">&#182;</a></h2><p>Una de las funciones más utilizadas de <a href="http://www.numpy.org">NumPy</a> son los <em>arreglos o arrays</em>: La principal diferencia entre las <em>listas de python</em> y los <em>arrays de numpy</em> esta dada por la velocidad y las funcionalidades adicionales que poseen estas últimas. Las <em>listas</em> solo nos dan operaciones básicas, pero los <em>arrays de numpy</em> nos agregan FFTs, convoluciones, búsquedas rápidas, estadística, álgebra lineal, histogramas, entre muchas otras cosas.&lt;/br&gt;
+La más importante ventaja que poseen los <em>arrays de numpy</em> para la ciencia de datos, es la habilidad de hacer cálculos a nivel de los elementos.</p>
+<p><code>eje 0</code> siempre se refiere a una fila</p>
+<p><code>eje 1</code> siempre se refiere a una columna</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.array([1,2,3])</code></td>
+<td style="text-align:left">1d array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.array([(1,2,3),(4,5,6)])</code></td>
+<td style="text-align:left">2d array</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.arange(start,stop,step)</code></td>
+<td style="text-align:left">array desde un rango</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Placeholders-">Placeholders <a name="place" /><a class="anchor-link" href="#Placeholders-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.linspace(0,2,9)</code></td>
+<td style="text-align:left">Agrega valores equidistantes desde el intervalo hasta el largo del array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.zeros((1,2))</code></td>
+<td style="text-align:left">Crea un array de ceros</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.ones((1,2))</code></td>
+<td style="text-align:left">Crea un array de unos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.random.random((5,5))</code></td>
+<td style="text-align:left">Crea un array de números aleatorios</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.random.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.empty((2,2))</code></td>
+<td style="text-align:left">Crea un array vacío</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.empty.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ejemplos-">Ejemplos <a name="ex" /><a class="anchor-link" href="#Ejemplos-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Convencion para importar numpy </span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># 1 dimension</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1"># 2 dimensiones</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([1, 2, 3]), array([[1, 2, 3],
+        [4, 5, 6]]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># con int</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0, 1, 2])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># con float</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.,  1.,  2.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># rango</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([3, 4, 5, 6])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># rango con intervalo</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([3, 5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Arrays-">Arrays <a name="arrays" /><a class="anchor-link" href="#Arrays-">&#182;</a></h2><h3 id="Propiedades-de-los-Arrays-">Propiedades de los Arrays <a name="props" /><a class="anchor-link" href="#Propiedades-de-los-Arrays-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Sintaxis</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>array.shape</code></td>
+<td style="text-align:left">Dimensiones (Filas,Columnas)</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>len(array)</code></td>
+<td style="text-align:left">Largo de Arrays</td>
+<td style="text-align:left"><a href="https://docs.python.org/3.5/library/functions.html#len">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.ndim</code></td>
+<td style="text-align:left">Numero de dimensiones de Array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.ndim.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.size</code></td>
+<td style="text-align:left">Números de Elementos de Array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.size.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.dtype</code></td>
+<td style="text-align:left">Tipo de Datos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.astype(type)</code></td>
+<td style="text-align:left">Convertir tipo de datos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.astype.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>type(array)</code></td>
+<td style="text-align:left">Tipo de Array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/user/basics.types.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Copiando/Ordenando-">Copiando/Ordenando <a name="gops" /><a class="anchor-link" href="#Copiando/Ordenando-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripciones</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.copy(array)</code></td>
+<td style="text-align:left">Crea una copia del array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>other = array.copy()</code></td>
+<td style="text-align:left">Crea una copia profunda del array</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.sort()</code></td>
+<td style="text-align:left">Ordena un Array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.sort(axis=0)</code></td>
+<td style="text-align:left">Ordena los ejes del Array</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Ejemplos-">Ejemplos <a name="array-Ejemplo" /><a class="anchor-link" href="#Ejemplos-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Ordenar. Ordenar en orden ascendente</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Manipulaci&#243;n-de-Arrays">Manipulaci&#243;n de Arrays<a name="man" /><a class="anchor-link" href="#Manipulaci&#243;n-de-Arrays">&#182;</a></h2><h3 id="Agregando-o-quitando-elementos-">Agregando o quitando elementos <a name="addrem" /><a class="anchor-link" href="#Agregando-o-quitando-elementos-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.append(a,b)</code></td>
+<td style="text-align:left">Agrega items al array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.append.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.insert(array, 1, 2, axis)</code></td>
+<td style="text-align:left">Inserta items al arrays en ejes 0 o 1</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.insert.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.resize((2,4))</code></td>
+<td style="text-align:left">Redimensiona el array a la forma(2,4)</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.resize.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.delete(array,1,axis)</code></td>
+<td style="text-align:left">Elimina items del array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.delete.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Combinando-Arrays-">Combinando Arrays <a name="comb" /><a class="anchor-link" href="#Combinando-Arrays-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.concatenate((a,b),axis=0)</code></td>
+<td style="text-align:left">Concatena 2 arrays, agrega al final</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.vstack((a,b))</code></td>
+<td style="text-align:left">Apila array a nivel filas</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.hstack((a,b))</code></td>
+<td style="text-align:left">Apila array a nivel columna</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Dividiendo-Arrays-">Dividiendo Arrays <a name="split" /><a class="anchor-link" href="#Dividiendo-Arrays-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>numpy.split()</code></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.split.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.array_split(array, 3)</code></td>
+<td style="text-align:left">Divide un array en sub-arrays de (casi) idéntico tamaño</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_split.html#numpy.array_split">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>numpy.hsplit(array, 3)</code></td>
+<td style="text-align:left">Divide el array en forma horizontal en el 3er índice</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hsplit.html#numpy.hsplit">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Mas-">Mas <a name="more" /><a class="anchor-link" href="#Mas-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>other = ndarray.flatten()</code></td>
+<td style="text-align:left">Aplana un array de 2d a una de 1d</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flatten.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array = np.transpose(other)</code>&lt;/br&gt; <code>array.T</code></td>
+<td style="text-align:left">Transpone el array</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.transpose.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Matem&#225;ticas-">Matem&#225;ticas <a name="maths" /><a class="anchor-link" href="#Matem&#225;ticas-">&#182;</a></h2><h3 id="Operaciones-aritm&#233;ticas-">Operaciones aritm&#233;ticas <a name="ops" /><a class="anchor-link" href="#Operaciones-aritm&#233;ticas-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>np.add(x,y)</code></td>
+<td style="text-align:left">Adición</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.add.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.substract(x,y)</code></td>
+<td style="text-align:left">Substracción</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.subtract.html#numpy.subtract">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.divide(x,y)</code></td>
+<td style="text-align:left">División</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.divide.html#numpy.divide">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.multiply(x,y)</code></td>
+<td style="text-align:left">Multiplicación</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.multiply.html#numpy.multiply">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.sqrt(x)</code></td>
+<td style="text-align:left">Raíz cuadrada</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.sin(x)</code></td>
+<td style="text-align:left">Seno a nivel elemento</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sin.html#numpy.sin">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.cos(x)</code></td>
+<td style="text-align:left">Coseno a nivel elemento</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cos.html#numpy.cos">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.log(x)</code></td>
+<td style="text-align:left">Logaritmo natural a nivel elementos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.log.html#numpy.log">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.dot(x,y)</code></td>
+<td style="text-align:left">Producto escalar</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recordar:</strong> Las operaciones con arrays de NumPy funcionan a nivel elemento.</p>
+<h4 id="Ejemplo-">Ejemplo <a name="operations-Ejemplos" /><a class="anchor-link" href="#Ejemplo-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Si un array de 1d es sumada a otra de 2d, Numpy elije </span>
+<span class="c1"># la array con dimensión más pequeña y la suma con la de</span>
+<span class="c1"># dimensión más grande</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[2 4 6]
+ [5 7 9]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Comparaci&#243;n-">Comparaci&#243;n <a name="comparison" /><a class="anchor-link" href="#Comparaci&#243;n-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>==</code></td>
+<td style="text-align:left">Igual a</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>!=</code></td>
+<td style="text-align:left">No igual a</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">Menor que</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">Mayor que</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;=</code></td>
+<td style="text-align:left">Menor o igual que</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;=</code></td>
+<td style="text-align:left">Mayor o igual que</td>
+<td style="text-align:left"><a href="https://docs.python.org/2/library/stdtypes.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.array_equal(x,y)</code></td>
+<td style="text-align:left">Comparación a nivel elemento</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_equal.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Ejemplo-">Ejemplo <a name="comparison-Ejemplo" /><a class="anchor-link" href="#Ejemplo-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Utilizando operadores de comparación creará un array de tipo booleano.</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ True  True  True  True  True False False False False False]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Estad&#237;stica-b&#225;sica-">Estad&#237;stica b&#225;sica <a name="stats" /><a class="anchor-link" href="#Estad&#237;stica-b&#225;sica-">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>array.mean()</code>&lt;/br&gt;<code>np.mean(array)</code></td>
+<td style="text-align:left">Media aritmética</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html#numpy.mean">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>np.median(array)</code></td>
+<td style="text-align:left">Mediana</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.median.html#numpy.median">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.corrcoef()</code></td>
+<td style="text-align:left">Coeficiente de correlación</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.corrcoef.html#numpy.corrcoef">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.std(array)</code></td>
+<td style="text-align:left">Desvío estándar</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.std.html#numpy.std">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Mas-funciones">Mas funciones<a name="more_func" /><a class="anchor-link" href="#Mas-funciones">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>array.sum()</code></td>
+<td style="text-align:left">Suma a nivel elementos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.min()</code></td>
+<td style="text-align:left">Minimiza a nivel elementos</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.max(axis=0)</code></td>
+<td style="text-align:left">Máximo valor de un determinado eje</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array.cumsum(axis=0)</code></td>
+<td style="text-align:left">Suma acumulada en un eje específico</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cumsum.html">link</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Slicing-y-Subsetting-">Slicing y Subsetting <a name="ss" /><a class="anchor-link" href="#Slicing-y-Subsetting-">&#182;</a></h2><table>
+<thead><tr>
+<th style="text-align:left">Operador</th>
+<th style="text-align:left">Descripción</th>
+<th style="text-align:left">Documentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>array[i]</code></td>
+<td style="text-align:left">array 1d al índice i</td>
+<td style="text-align:left"><a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html">link</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[i,j]</code></td>
+<td style="text-align:left">array 2d al index[i][j]</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[i&lt;4]</code></td>
+<td style="text-align:left">índice booleano, ver <a href="#Trucos">Trucos</a></td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[0:3]</code></td>
+<td style="text-align:left">Selecciona items de indice 0, 1 y 2</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[0:2,1]</code></td>
+<td style="text-align:left">Selecciona items de filas 0 y 1 de la columna 1</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[:1]</code></td>
+<td style="text-align:left">Selecciona items de fila 0 (igual a array[0:1, :])</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[1:2, :]</code></td>
+<td style="text-align:left">Selecciona items de fila 1</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[1,...]</code></td>
+<td style="text-align:left">Igual a array[1,:,:]</td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>array[ : :-1]</code></td>
+<td style="text-align:left">Reversa el <code>array</code></td>
+<td style="text-align:left">ver arriba</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Ejemplos-">Ejemplos <a name="exp" /><a class="anchor-link" href="#Ejemplos-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Seleccionando elementos.</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+
+<span class="c1"># El índice *antes* de la coma refiere a filas,</span>
+<span class="c1"># el índice *después* de la coma refiere a columnas.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[3]
+[3 6]
+[1 2 3]
+[3]
+[1 4]
+[[4 5]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Trucos-">Trucos <a name="Trucos" /><a class="anchor-link" href="#Trucos-">&#182;</a></h2><p>Esta es una lista de ejemplos en progreso. Si conocen un buen truco, no duden en comentar para que sea incluido en el tutorial.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Truco de indices cuando trabajamos con 2 arrays</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Solo guardar a con indice dónde b == 1</span>
+<span class="n">other_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">other_a</span><span class="p">)</span>
+
+<span class="c1"># Guardar todos las las posiciones excepto aquella en que b==1</span>
+<span class="n">other_other_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">other_other_a</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[4]
+[1 2 3 6 1 1]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span></span><span class="c1"># Otra forma de trabajar con índices</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+
+<span class="c1"># Más compacta</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[6 8 6 9]
+[1 2 3 4 4]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cr&#233;ditos-">Cr&#233;ditos <a name="creds" /><a class="anchor-link" href="#Cr&#233;ditos-">&#182;</a></h2><p><a href="https://www.datacamp.com/home">Datacamp</a>,
+<a href="https://s3.amazonaws.com/quandl-static-content/Documents/Quandl+-+Pandas,+SciPy,+NumPy+Cheat+Sheet.pdf">Quandl</a> y <a href="https://docs.scipy.org/doc/numpy/">Documentación oficial</a></p>
+<p><em>Este post fue escrito utilizando IPython notebook. Pueden descargar este <a href="https://github.com/IAARhub/iaar_template/tree/master/content/notebooks/numpy_cheat_sheet.ipynb">notebook</a> o ver su version estática en <a href="http://nbviewer.ipython.org/github/IAARhub/iaar_template/tree/master/content/notebooks/numpy_cheat_sheet.ipynb">nbviewer</a>.</em></p>
+
+</div>
+</div>
+</div>
+ 
+
+</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Raul E. Lopez Briega</span>
+  </span>
+<time datetime="2017-04-07T00:00:00-03:00" pubdate>Fri 07 April 2017</time>  <span class="categories">
+    <a class="category" href="https://iaarhub.github.io/tag/python.html">Python</a>
+    <a class="category" href="https://iaarhub.github.io/tag/programacion.html">programacion</a>
+    <a class="category" href="https://iaarhub.github.io/tag/analisis-de-datos.html">analisis de datos</a>
+    <a class="category" href="https://iaarhub.github.io/tag/numpy.html">NumPy</a>
+    <a class="category" href="https://iaarhub.github.io/tag/arrays.html">Arrays</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" data-via="" data-counturl="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
   </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 </div>
 <aside class="sidebar">
   <section>
@@ -375,6 +1361,9 @@ jQuery(document).ready(function($) {
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'iaar-capacitacion';
+          var disqus_identifier = '/capacitacion/2017/04/07/mini-tutorial-de-numpy/';
+          var disqus_url = 'https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/';
+          var disqus_title = 'Mini tutorial de NumPy';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';

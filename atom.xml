@@ -1,5 +1,981 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IAAR Capacitación</title><link href="https://iaarhub.github.io/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>https://iaarhub.github.io/</id><updated>2017-03-16T00:00:00-03:00</updated><entry><title>Currícula Data Science - Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</id><summary type="html">&lt;h2&gt;Fundamentos&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IAAR Capacitación</title><link href="https://iaarhub.github.io/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>https://iaarhub.github.io/</id><updated>2017-04-07T00:00:00-03:00</updated><entry><title>Mini tutorial de NumPy</title><link href="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" rel="alternate"></link><published>2017-04-07T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-07:capacitacion/2017/04/07/mini-tutorial-de-numpy/</id><summary type="html">&lt;p&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;img src="https://bids.berkeley.edu/sites/default/files/styles/400x225/public/projects/numpy_project_page.jpg?itok=flrdydei" title="numpy" alt="numpy"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.numpy.org"&gt;NumPy&lt;/a&gt; es el principal paquete para la computación científica con &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Este mini tutorial esta orientado a una introducción de Python para la Ciencia de Datos. &lt;strong&gt;&lt;em&gt;Pueden contactarme &lt;a href="http://relopezbriega.github.io/"&gt;aquí&lt;/a&gt; para cualquier tipo de sugerencias!&lt;/em&gt;&lt;/strong&gt;. Basado en la cheat sheet de &lt;a href="https://github.com/juliangaal/python-cheat-sheet/blob/master/NumPy/NumPy.md"&gt;JulianGaal&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="&amp;#205;ndice"&gt;&amp;#205;ndice&lt;a class="anchor-link" href="#&amp;#205;ndice"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href="#basics"&gt;Numpy básico&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#place"&gt;Placeholders&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ex"&gt;Ejemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#arrays"&gt;Arrays&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#props"&gt;Propiedades&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gops"&gt;Copiando/Ordenando&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#array-Ejemplo"&gt;Ejemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#man"&gt;Manipulación de Arrays&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#addrem"&gt;Agregando/Quitando Elementos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#comb"&gt;Combinando Arrays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#split"&gt;Dividiendo Arrays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#more"&gt;Mas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#maths"&gt;Matemáticas&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#ops"&gt;Operaciones aritméticas&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#operations-Ejemplos"&gt;Ejemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#comparison"&gt;Comparaciones&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#comparison-Ejemplo"&gt;Ejemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#stats"&gt;Estadística básica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#more_func"&gt;Mas funciones&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ss"&gt;Slicing y Subsetting&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#exp"&gt;Ejemplos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Trucos"&gt;Trucos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#creds"&gt;Créditos&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="Numpy-b&amp;#225;sico-"&gt;Numpy b&amp;#225;sico &lt;a name="basics" /&gt;&lt;a class="anchor-link" href="#Numpy-b&amp;#225;sico-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Una de las funciones más utilizadas de &lt;a href="http://www.numpy.org"&gt;NumPy&lt;/a&gt; son los &lt;em&gt;arreglos o arrays&lt;/em&gt;: La principal diferencia entre las &lt;em&gt;listas de python&lt;/em&gt; y los &lt;em&gt;arrays de numpy&lt;/em&gt; esta dada por la velocidad y las funcionalidades adicionales que poseen estas últimas. Las &lt;em&gt;listas&lt;/em&gt; solo nos dan operaciones básicas, pero los &lt;em&gt;arrays de numpy&lt;/em&gt; nos agregan FFTs, convoluciones, búsquedas rápidas, estadística, álgebra lineal, histogramas, entre muchas otras cosas.&amp;lt;/br&amp;gt;
+La más importante ventaja que poseen los &lt;em&gt;arrays de numpy&lt;/em&gt; para la ciencia de datos, es la habilidad de hacer cálculos a nivel de los elementos.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eje 0&lt;/code&gt; siempre se refiere a una fila&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eje 1&lt;/code&gt; siempre se refiere a una columna&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.array([1,2,3])&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;1d array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.array([(1,2,3),(4,5,6)])&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;2d array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.arange(start,stop,step)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;array desde un rango&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Placeholders-"&gt;Placeholders &lt;a name="place" /&gt;&lt;a class="anchor-link" href="#Placeholders-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.linspace(0,2,9)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Agrega valores equidistantes desde el intervalo hasta el largo del array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.zeros((1,2))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea un array de ceros&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.ones((1,2))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea un array de unos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html#numpy.ones"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.random.random((5,5))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea un array de números aleatorios&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.random.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.empty((2,2))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea un array vacío&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.empty.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Ejemplos-"&gt;Ejemplos &lt;a name="ex" /&gt;&lt;a class="anchor-link" href="#Ejemplos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Convencion para importar numpy &lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# 1 dimension&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="c1"&gt;# 2 dimensiones&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(array([1, 2, 3]), array([[1, 2, 3],
+        [4, 5, 6]]))&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# con int&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([0, 1, 2])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# con float&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;3.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([ 0.,  1.,  2.])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# rango&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([3, 4, 5, 6])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# rango con intervalo&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([3, 5])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Arrays-"&gt;Arrays &lt;a name="arrays" /&gt;&lt;a class="anchor-link" href="#Arrays-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Propiedades-de-los-Arrays-"&gt;Propiedades de los Arrays &lt;a name="props" /&gt;&lt;a class="anchor-link" href="#Propiedades-de-los-Arrays-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Sintaxis&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.shape&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Dimensiones (Filas,Columnas)&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;len(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Largo de Arrays&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/3.5/library/functions.html#len"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.ndim&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Numero de dimensiones de Array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.ndim.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.size&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Números de Elementos de Array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.size.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.dtype&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Tipo de Datos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.astype(type)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Convertir tipo de datos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.astype.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;type(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Tipo de Array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/user/basics.types.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Copiando/Ordenando-"&gt;Copiando/Ordenando &lt;a name="gops" /&gt;&lt;a class="anchor-link" href="#Copiando/Ordenando-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripciones&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.copy(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea una copia del array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.copy.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;other = array.copy()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Crea una copia profunda del array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.sort()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Ordena un Array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.sort(axis=0)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Ordena los ejes del Array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="Ejemplos-"&gt;Ejemplos &lt;a name="array-Ejemplo" /&gt;&lt;a class="anchor-link" href="#Ejemplos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Ordenar. Ordenar en orden ascendente&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[9]:&lt;/div&gt;
+
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Manipulaci&amp;#243;n-de-Arrays"&gt;Manipulaci&amp;#243;n de Arrays&lt;a name="man" /&gt;&lt;a class="anchor-link" href="#Manipulaci&amp;#243;n-de-Arrays"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Agregando-o-quitando-elementos-"&gt;Agregando o quitando elementos &lt;a name="addrem" /&gt;&lt;a class="anchor-link" href="#Agregando-o-quitando-elementos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.append(a,b)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Agrega items al array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.append.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.insert(array, 1, 2, axis)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Inserta items al arrays en ejes 0 o 1&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.insert.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.resize((2,4))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Redimensiona el array a la forma(2,4)&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.resize.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.delete(array,1,axis)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Elimina items del array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.delete.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Combinando-Arrays-"&gt;Combinando Arrays &lt;a name="comb" /&gt;&lt;a class="anchor-link" href="#Combinando-Arrays-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.concatenate((a,b),axis=0)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Concatena 2 arrays, agrega al final&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.vstack((a,b))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Apila array a nivel filas&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.hstack((a,b))&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Apila array a nivel columna&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Dividiendo-Arrays-"&gt;Dividiendo Arrays &lt;a name="split" /&gt;&lt;a class="anchor-link" href="#Dividiendo-Arrays-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;numpy.split()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.split.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.array_split(array, 3)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Divide un array en sub-arrays de (casi) idéntico tamaño&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_split.html#numpy.array_split"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;numpy.hsplit(array, 3)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Divide el array en forma horizontal en el 3er índice&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hsplit.html#numpy.hsplit"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Mas-"&gt;Mas &lt;a name="more" /&gt;&lt;a class="anchor-link" href="#Mas-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;other = ndarray.flatten()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Aplana un array de 2d a una de 1d&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flatten.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array = np.transpose(other)&lt;/code&gt;&amp;lt;/br&amp;gt; &lt;code&gt;array.T&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Transpone el array&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.transpose.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="Matem&amp;#225;ticas-"&gt;Matem&amp;#225;ticas &lt;a name="maths" /&gt;&lt;a class="anchor-link" href="#Matem&amp;#225;ticas-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Operaciones-aritm&amp;#233;ticas-"&gt;Operaciones aritm&amp;#233;ticas &lt;a name="ops" /&gt;&lt;a class="anchor-link" href="#Operaciones-aritm&amp;#233;ticas-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.add(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Adición&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.add.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.substract(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Substracción&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.subtract.html#numpy.subtract"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.divide(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;División&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.divide.html#numpy.divide"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.multiply(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Multiplicación&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.multiply.html#numpy.multiply"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.sqrt(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Raíz cuadrada&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html#numpy.sqrt"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.sin(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Seno a nivel elemento&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sin.html#numpy.sin"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.cos(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Coseno a nivel elemento&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cos.html#numpy.cos"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.log(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Logaritmo natural a nivel elementos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.log.html#numpy.log"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.dot(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Producto escalar&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Recordar:&lt;/strong&gt; Las operaciones con arrays de NumPy funcionan a nivel elemento.&lt;/p&gt;
+&lt;h4 id="Ejemplo-"&gt;Ejemplo &lt;a name="operations-Ejemplos" /&gt;&lt;a class="anchor-link" href="#Ejemplo-"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Si un array de 1d es sumada a otra de 2d, Numpy elije &lt;/span&gt;
+&lt;span class="c1"&gt;# la array con dimensión más pequeña y la suma con la de&lt;/span&gt;
+&lt;span class="c1"&gt;# dimensión más grande&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[[2 4 6]
+ [5 7 9]]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Comparaci&amp;#243;n-"&gt;Comparaci&amp;#243;n &lt;a name="comparison" /&gt;&lt;a class="anchor-link" href="#Comparaci&amp;#243;n-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;==&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Igual a&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;!=&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;No igual a&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Menor que&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Mayor que&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Menor o igual que&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Mayor o igual que&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.python.org/2/library/stdtypes.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.array_equal(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Comparación a nivel elemento&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_equal.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="Ejemplo-"&gt;Ejemplo &lt;a name="comparison-Ejemplo" /&gt;&lt;a class="anchor-link" href="#Ejemplo-"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Utilizando operadores de comparación creará un array de tipo booleano.&lt;/span&gt;
+&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[ True  True  True  True  True False False False False False]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Estad&amp;#237;stica-b&amp;#225;sica-"&gt;Estad&amp;#237;stica b&amp;#225;sica &lt;a name="stats" /&gt;&lt;a class="anchor-link" href="#Estad&amp;#237;stica-b&amp;#225;sica-"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.mean()&lt;/code&gt;&amp;lt;/br&amp;gt;&lt;code&gt;np.mean(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Media aritmética&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html#numpy.mean"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;np.median(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Mediana&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.median.html#numpy.median"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.corrcoef()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Coeficiente de correlación&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.corrcoef.html#numpy.corrcoef"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.std(array)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Desvío estándar&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.std.html#numpy.std"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="Mas-funciones"&gt;Mas funciones&lt;a name="more_func" /&gt;&lt;a class="anchor-link" href="#Mas-funciones"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.sum()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Suma a nivel elementos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.min()&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Minimiza a nivel elementos&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.min.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.max(axis=0)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Máximo valor de un determinado eje&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.max.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array.cumsum(axis=0)&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Suma acumulada en un eje específico&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.cumsum.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="Slicing-y-Subsetting-"&gt;Slicing y Subsetting &lt;a name="ss" /&gt;&lt;a class="anchor-link" href="#Slicing-y-Subsetting-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th style="text-align:left"&gt;Operador&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Descripción&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Documentación&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[i]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;array 1d al índice i&lt;/td&gt;
+&lt;td style="text-align:left"&gt;&lt;a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html"&gt;link&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[i,j]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;array 2d al index[i][j]&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[i&amp;lt;4]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;índice booleano, ver &lt;a href="#Trucos"&gt;Trucos&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[0:3]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Selecciona items de indice 0, 1 y 2&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[0:2,1]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Selecciona items de filas 0 y 1 de la columna 1&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[:1]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Selecciona items de fila 0 (igual a array[0:1, :])&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[1:2, :]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Selecciona items de fila 1&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[1,...]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Igual a array[1,:,:]&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:left"&gt;&lt;code&gt;array[ : :-1]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;Reversa el &lt;code&gt;array&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align:left"&gt;ver arriba&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="Ejemplos-"&gt;Ejemplos &lt;a name="exp" /&gt;&lt;a class="anchor-link" href="#Ejemplos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Seleccionando elementos.&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# El índice *antes* de la coma refiere a filas,&lt;/span&gt;
+&lt;span class="c1"&gt;# el índice *después* de la coma refiere a columnas.&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[3]
+[3 6]
+[1 2 3]
+[3]
+[1 4]
+[[4 5]]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Trucos-"&gt;Trucos &lt;a name="Trucos" /&gt;&lt;a class="anchor-link" href="#Trucos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Esta es una lista de ejemplos en progreso. Si conocen un buen truco, no duden en comentar para que sea incluido en el tutorial.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Truco de indices cuando trabajamos con 2 arrays&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Solo guardar a con indice dónde b == 1&lt;/span&gt;
+&lt;span class="n"&gt;other_a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;other_a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Guardar todos las las posiciones excepto aquella en que b==1&lt;/span&gt;
+&lt;span class="n"&gt;other_other_a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;other_other_a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[4]
+[1 2 3 6 1 1]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Otra forma de trabajar con índices&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Más compacta&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;212&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[6 8 6 9]
+[1 2 3 4 4]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Cr&amp;#233;ditos-"&gt;Cr&amp;#233;ditos &lt;a name="creds" /&gt;&lt;a class="anchor-link" href="#Cr&amp;#233;ditos-"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.datacamp.com/home"&gt;Datacamp&lt;/a&gt;,
+&lt;a href="https://s3.amazonaws.com/quandl-static-content/Documents/Quandl+-+Pandas,+SciPy,+NumPy+Cheat+Sheet.pdf"&gt;Quandl&lt;/a&gt; y &lt;a href="https://docs.scipy.org/doc/numpy/"&gt;Documentación oficial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Este post fue escrito utilizando IPython notebook. Pueden descargar este &lt;a href="https://github.com/IAARhub/iaar_template/tree/master/content/notebooks/numpy_cheat_sheet.ipynb"&gt;notebook&lt;/a&gt; o ver su version estática en &lt;a href="http://nbviewer.ipython.org/github/IAARhub/iaar_template/tree/master/content/notebooks/numpy_cheat_sheet.ipynb"&gt;nbviewer&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+ 
+
+&lt;/p&gt;</summary><category term="Python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="NumPy"></category><category term="Arrays"></category></entry><entry><title>Currícula Data Science - Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</id><summary type="html">&lt;h2&gt;Fundamentos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Algebra Lineal y Matrices&lt;/li&gt;
 &lt;li&gt;Algebra Relacional&lt;/li&gt;
@@ -293,7 +1269,7 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# &amp;lt;!-- collapse=True --&amp;gt;&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# &amp;lt;!-- collapse=True --&amp;gt;&lt;/span&gt;
 &lt;span class="c1"&gt;# importamos la libreria&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tensorflow&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tf&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tensorflow.python&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;control_flow_ops&lt;/span&gt;
@@ -333,7 +1309,7 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# cargar los datos&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# cargar los datos&lt;/span&gt;
 &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;unpickle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cifar-10-batches-py/test_batch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -347,7 +1323,7 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# forma del dataset&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# forma del dataset&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;forma dataset prueba: {}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -359,7 +1335,9 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="output"&gt;
 
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;forma dataset prueba: (10000, 32, 32, 3)
 &lt;/pre&gt;
@@ -375,7 +1353,7 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# dibujar imagenes&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# dibujar imagenes&lt;/span&gt;
 &lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt;
@@ -392,7 +1370,9 @@ La operación realizada por esta capa también se llama &lt;em&gt;reducción de 
 &lt;div class="output"&gt;
 
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_png output_subarea "&gt;
@@ -4045,7 +5025,7 @@ lIbPtgAAAABJRU5ErkJggg==
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# dibujar 200 imagenes&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# dibujar 200 imagenes&lt;/span&gt;
 &lt;span class="n"&gt;conj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;320&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;640&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;uint8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;idx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -4064,7 +5044,9 @@ lIbPtgAAAABJRU5ErkJggg==
 &lt;div class="output"&gt;
 
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_png output_subarea "&gt;
@@ -10677,7 +11659,7 @@ lixZsmTJkvfB/wWXeK9LByYuvwAAAABJRU5ErkJggg==
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# armado de la red&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# armado de la red&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Parametros&lt;/span&gt;
 &lt;span class="n"&gt;learning_rate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.01&lt;/span&gt;
@@ -10856,7 +11838,7 @@ Por último, la función &lt;code&gt;inference&lt;/code&gt; es la que va a tener
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c1"&gt;# Lanzando el modelo&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Lanzando el modelo&lt;/span&gt;
 &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Graph&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_default&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;variable_scope&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cifar_Conv_model&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;placeholder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;float&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
@@ -10953,7 +11935,9 @@ Por último, la función &lt;code&gt;inference&lt;/code&gt; es la que va a tener
 &lt;div class="output"&gt;
 
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Filling queue with 20000 CIFAR images before starting to train. This will take a few minutes.
 Epoch: 0001 cost = 1.528662126
@@ -10980,4 +11964,7 @@ Test Accuracy: 0.820312
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</summary><category term="python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Machine Learning"></category><category term="Redes Neuronales"></category><category term="TensorFlow"></category></entry></feed>
+&lt;/div&gt;
+ 
+
+&lt;/p&gt;</summary><category term="python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Machine Learning"></category><category term="Redes Neuronales"></category><category term="TensorFlow"></category></entry></feed>
