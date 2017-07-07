@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IAAR Capacitación</title><link href="https://iaarhub.github.io/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://iaarhub.github.io/</id><updated>2017-06-13T00:00:00-03:00</updated><entry><title>Introducción al Deep Learning</title><link href="https://iaarhub.github.io/capacitacion/2017/06/13/introduccion-al-deep-learning/" rel="alternate"></link><published>2017-06-13T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-06-13:capacitacion/2017/06/13/introduccion-al-deep-learning/</id><summary type="html">&lt;p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IAAR Capacitación</title><link href="https://iaarhub.github.io/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>https://iaarhub.github.io/</id><updated>2017-06-13T00:00:00-03:00</updated><entry><title>Introducción al Deep Learning</title><link href="https://iaarhub.github.io/capacitacion/2017/06/13/introduccion-al-deep-learning/" rel="alternate"></link><published>2017-06-13T00:00:00-03:00</published><updated>2017-06-13T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-06-13:capacitacion/2017/06/13/introduccion-al-deep-learning/</id><summary type="html">&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -132,7 +132,7 @@ $$a = f\left(\sum_{i=0}^n w_i \cdot x_i \right)$$&lt;p&gt;Aquí $f$ es la &lt;st
 &lt;/div&gt;
  
 
-&lt;/p&gt;</summary></entry><entry><title>Introducción a la Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/04/30/introduccion-a-la-inteligencia-artificial/" rel="alternate"></link><published>2017-04-30T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-30:capacitacion/2017/04/30/introduccion-a-la-inteligencia-artificial/</id><summary type="html">&lt;p&gt;
+&lt;/p&gt;</summary></entry><entry><title>Introducción a la Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/04/30/introduccion-a-la-inteligencia-artificial/" rel="alternate"></link><published>2017-04-30T00:00:00-03:00</published><updated>2017-04-30T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-30:capacitacion/2017/04/30/introduccion-a-la-inteligencia-artificial/</id><summary type="html">&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -235,7 +235,7 @@ técnicas experimentales de &lt;a href="https://es.wikipedia.org/wiki/Psicolog%C
 &lt;/div&gt;
  
 
-&lt;/p&gt;</summary></entry><entry><title>31 herramientas que te ayudarán a crear tu propio CHATBOT</title><link href="https://iaarhub.github.io/capacitacion/2017/04/09/31-herramientas-que-te-ayudaran-a-crear-tu-propio-chatbot/" rel="alternate"></link><published>2017-04-09T00:00:00-03:00</published><author><name>Patricio Julian Gerpe</name></author><id>tag:iaarhub.github.io,2017-04-09:capacitacion/2017/04/09/31-herramientas-que-te-ayudaran-a-crear-tu-propio-chatbot/</id><summary type="html">&lt;p&gt;¿Quieres construir un chatbot pero no sabes por dónde empezar? Desde el diseño hasta el análisis, tenemos todo lo que necesitas saber. Sigue leyendo para encontrar toda clase de recursos útiles. ¡Para utilizar la mayoría de ellos no es necesario saber programar!&lt;/p&gt;
+&lt;/p&gt;</summary></entry><entry><title>31 herramientas que te ayudarán a crear tu propio CHATBOT</title><link href="https://iaarhub.github.io/capacitacion/2017/04/09/31-herramientas-que-te-ayudaran-a-crear-tu-propio-chatbot/" rel="alternate"></link><published>2017-04-09T00:00:00-03:00</published><updated>2017-04-09T00:00:00-03:00</updated><author><name>Patricio Julian Gerpe</name></author><id>tag:iaarhub.github.io,2017-04-09:capacitacion/2017/04/09/31-herramientas-que-te-ayudaran-a-crear-tu-propio-chatbot/</id><summary type="html">&lt;p&gt;¿Quieres construir un chatbot pero no sabes por dónde empezar? Desde el diseño hasta el análisis, tenemos todo lo que necesitas saber. Sigue leyendo para encontrar toda clase de recursos útiles. ¡Para utilizar la mayoría de ellos no es necesario saber programar!&lt;/p&gt;
 &lt;p&gt;&lt;img alt="chatbots" src="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAfVAAAAJGFmMjQ5NGJmLTZiYjAtNDIzNy1hZThjLTUyNzQwMmIxOTU3OQ.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;Diseño de Bots&lt;/h2&gt;
 &lt;ol&gt;
@@ -343,7 +343,7 @@ técnicas experimentales de &lt;a href="https://es.wikipedia.org/wiki/Psicolog%C
 &lt;li&gt;
 &lt;p&gt;&lt;a href="http://botfamily.com/"&gt;Bot Family&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="chatbot"></category><category term="programacion"></category><category term="Inteligencia Artificial"></category><category term="recursos"></category></entry><entry><title>Introducción a R para Ciencia de Datos</title><link href="https://iaarhub.github.io/capacitacion/2017/04/08/introduccion-a-r-para-ciencia-de-datos/" rel="alternate"></link><published>2017-04-08T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-08:capacitacion/2017/04/08/introduccion-a-r-para-ciencia-de-datos/</id><summary type="html">&lt;p&gt;
+&lt;/ol&gt;</summary><category term="chatbot"></category><category term="programacion"></category><category term="Inteligencia Artificial"></category><category term="recursos"></category></entry><entry><title>Introducción a R para Ciencia de Datos</title><link href="https://iaarhub.github.io/capacitacion/2017/04/08/introduccion-a-r-para-ciencia-de-datos/" rel="alternate"></link><published>2017-04-08T00:00:00-03:00</published><updated>2017-04-08T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-08:capacitacion/2017/04/08/introduccion-a-r-para-ciencia-de-datos/</id><summary type="html">&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -5047,7 +5047,7 @@ dt&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="m"&gt;.&lt;/span&gt;N&lt
 &lt;/div&gt;
  
 
-&lt;/p&gt;</summary><category term="R"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Machine Learning"></category><category term="Redes Neuronales"></category><category term="ggplot2"></category></entry><entry><title>Mini tutorial de NumPy</title><link href="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" rel="alternate"></link><published>2017-04-07T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-07:capacitacion/2017/04/07/mini-tutorial-de-numpy/</id><summary type="html">&lt;p&gt;
+&lt;/p&gt;</summary><category term="R"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Machine Learning"></category><category term="Redes Neuronales"></category><category term="ggplot2"></category></entry><entry><title>Mini tutorial de NumPy</title><link href="https://iaarhub.github.io/capacitacion/2017/04/07/mini-tutorial-de-numpy/" rel="alternate"></link><published>2017-04-07T00:00:00-03:00</published><updated>2017-04-07T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-04-07:capacitacion/2017/04/07/mini-tutorial-de-numpy/</id><summary type="html">&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -6023,7 +6023,7 @@ La más importante ventaja que poseen los &lt;em&gt;arrays de numpy&lt;/em&gt; p
 &lt;/div&gt;
  
 
-&lt;/p&gt;</summary><category term="Python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="NumPy"></category><category term="Arrays"></category></entry><entry><title>Currícula Data Science - Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</id><summary type="html">&lt;h2&gt;Fundamentos&lt;/h2&gt;
+&lt;/p&gt;</summary><category term="Python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="NumPy"></category><category term="Arrays"></category></entry><entry><title>Currícula Data Science - Inteligencia Artificial</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><updated>2017-03-16T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/curricula-data-science-inteligencia-artificial/</id><summary type="html">&lt;h2&gt;Fundamentos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Algebra Lineal y Matrices&lt;/li&gt;
 &lt;li&gt;Algebra Relacional&lt;/li&gt;
@@ -6257,7 +6257,7 @@ La más importante ventaja que poseen los &lt;em&gt;arrays de numpy&lt;/em&gt; p
 &lt;li&gt;Flume/Scibe/Chukwa&lt;/li&gt;
 &lt;li&gt;Shiny/ggplot2/D3.js&lt;/li&gt;
 &lt;li&gt;Nutch/Talend/Scraperwiki&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Inteligencia Artificial"></category><category term="R"></category></entry><entry><title>Redes neuronales convolucionales con TensorFlow</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/</id><summary type="html">&lt;p&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="programacion"></category><category term="analisis de datos"></category><category term="Inteligencia Artificial"></category><category term="R"></category></entry><entry><title>Redes neuronales convolucionales con TensorFlow</title><link href="https://iaarhub.github.io/capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/" rel="alternate"></link><published>2017-03-16T00:00:00-03:00</published><updated>2017-03-16T00:00:00-03:00</updated><author><name>Raul E. Lopez Briega</name></author><id>tag:iaarhub.github.io,2017-03-16:capacitacion/2017/03/16/redes-neuronales-convolucionales-con-tensorflow/</id><summary type="html">&lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
